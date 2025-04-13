@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persistencia de Datos - Contenido</title>
+    <link rel="stylesheet" href="../style/estilo.css">
+</head>
+
+<body>
+    <header>
+        <h1>Persistencia de Datos en HTML5</h1>
+        <nav id="menu-principal">
+            <ul>
+                <li><a href="Principal.html">Inicio</a></li>
+                <li><a href="Introduccion.html">Introducción</a></li>
+                <li><a href="Contenido.html" class="active">Contenido</a></li>
+                <li><a href="Conclusion.html">Conclusión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contenido" class="seccion">
+            <h2>Tipos de almacenamiento en HTML5</h2>
+
+            <article>
+                <h3>LocalStorage</h3>
+                <p>El local storage es una funcionalidad de los navegadores que permite a los desarrolladores guardar
+                    información en el navegador del usuario. Es parte de Web Storage API [API de Almacenamiento Web]
+                    junto a session storage.
+                    El local storage funciona tomando información en formato de pares clave-valor y la conserva aun
+                    cuando el usuario actualiza la página o cierra la pestaña o el navegador.</p>
+                <p>Ideal para guardar configuraciones del usuario o datos que deben persistir entre sesiones.</p>
+
+                <div class="code-example">
+                    <h4>Ejemplo básico:</h4>
+                    <pre><code class="script">// Guardar un valor
+localStorage.setItem("nombre", "Juan");
+// Recuperar el valor
+let nombre = localStorage.getItem("nombre");
+console.log(nombre); // Muestra "Juan"</code></pre>
+                </div>
+            </article>
+            <article>
+                <h3>SessionStorage</h3>
+                <p>La propiedad sessionStorage permite acceder a un objeto Storage asociado a la sesión actual. La
+                    propiedad sessionStorage es similar a localStorage, la única diferencia es que la información
+                    almacenada en localStorage no posee tiempo de expiración, por el contrario la información almacenada
+                    en sessionStorage es eliminada al finalizar la sesion de la página. La sesión de la página perdura
+                    mientras el navegador se encuentra abierto, y se mantiene por sobre las recargas y reaperturas de la
+                    página. Abrir una página en una nueva pestaña o ventana iniciará una nueva sesión, lo que difiere en
+                    la forma en que trabajan las cookies de sesión.</p>
+                <p>Útil para información temporal como datos de formularios.</p>
+
+                <div class="code-example">
+                    <h4>Ejemplo básico:</h4>
+                    <pre><code class="script">// Guardar un token de sesión
+sessionStorage.setItem("token", "abc123");
+// Recuperar el token
+let token = sessionStorage.getItem("token");
+console.log(token); // Muestra "abc123"</code></pre>
+                </div>
+            </article>
+
+            <article>
+                <h3>IndexedDB</h3>
+                <p>Es una API de bajo nivel que ofrece almacenamiento en el cliente de cantidades significativas de
+                    datos estructurados, incluyendo archivos y blobs. Para búsquedas de alto rendimiento en esos datos
+                    usa índices. Mientras DOM Storage es útil para el almacenamiento de pequeñas cantidades de datos, no
+                    es útil para almacenar grandes cantidades de datos estructurados. IndexedDB proporciona una
+                    solución.</p>
+                <p>Es más compleja pero adecuada para aplicaciones avanzadas que requieren consultas y transacciones.
+                </p>
+
+                <ul>
+                    <li>Soporta índices para búsquedas rápidas</li>
+                    <li>Permite transacciones para operaciones complejas</li>
+                    <li>Capacidad mucho mayor que Web Storage (hasta 50MB o más)</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Otras APIs de almacenamiento</h3>
+
+                <h4>WebSQL Database</h4>
+                <p>Utiliza SQL para manejar bases de datos locales, pero su uso ha sido deprecado y no es recomendado
+                    para nuevos proyectos.</p>
+
+                <h4>FileSystem API</h4>
+                <p>Permite almacenar archivos binarios directamente en el navegador, útil para multimedia como videos o
+                    imágenes.</p>
+
+                <h4>Application Cache</h4>
+                <p>Ofrece la posibilidad de definir políticas de caché para mejorar la velocidad y disponibilidad de
+                    aplicaciones offline.</p>
+            </article>
+
+            <article>
+                <h3>Ventajas frente a las cookies</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Cookies</th>
+                            <th>Web Storage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Capacidad</td>
+                            <td>~4 KB por cookie</td>
+                            <td>5-10 MB por dominio</td>
+                        </tr>
+                        <tr>
+                            <td>Rendimiento</td>
+                            <td>Se envían con cada solicitud HTTP</td>
+                            <td>No se envían al servidor</td>
+                        </tr>
+                        <tr>
+                            <td>Persistencia</td>
+                            <td>Configurable</td>
+                            <td>localStorage: persistente<br>sessionStorage: por sesión</td>
+                        </tr>
+                        <tr>
+                            <td>Complejidad</td>
+                            <td>Simple</td>
+                            <td>Simple (Web Storage)<br>Compleja (IndexedDB)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Consideraciones de seguridad</h3>
+                <p>Aunque HTML5 Web Storage es eficiente, tiene vulnerabilidades como ataques XSS (Cross-Site
+                    Scripting). Por ello, no se recomienda almacenar información sensible como:</p>
+                <ul>
+                    <li>Contraseñas en texto plano</li>
+                    <li>Números de tarjetas de crédito</li>
+                    <li>Información personal sensible</li>
+                    <li>Tokens de autenticación sin cifrar</li>
+                </ul>
+
+                <div class="security-tip">
+                    <h4>Buenas prácticas de seguridad:</h4>
+                    <ol>
+                        <li>Validar y sanitizar todos los datos antes de almacenarlos</li>
+                        <li>Usar cifrado para información sensible</li>
+                        <li>Implementar políticas de CORS adecuadas</li>
+                        <li>Limpiar datos obsoletos o innecesarios</li>
+                    </ol>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="referencias">
+            <h3>Referencias</h3>
+            <ul>
+                <li>Persistencia de objetos javascript en HTML5 - NotasWeb.com. (n.d.).
+                    <a href="http://notasweb.com/articulo/javascript/persistencia-de-objetos-javascript-en-html5.html"
+                        target="_blank" rel="noopener noreferrer">
+                        http://notasweb.com/articulo/javascript/persistencia-de-objetos-javascript-en-html5.html
+                    </a>
+                </li>
+                <li>Álvarez, C. (2015, January 24). HTML5 y sus tipos de almacenamiento. Genbeta.
+                    <a href="https://www.genbeta.com/desarrollo/html5-y-sus-tipos-de-almacenamiento" target="_blank"
+                        rel="noopener noreferrer">
+                        https://www.genbeta.com/desarrollo/html5-y-sus-tipos-de-almacenamiento
+                    </a>
+                </li>
+                <li>Srinisavan, K., & Srinisavan, K. (2024, November 7). HTML5 Web Storage. SitePoint.
+                    <a href="https://www.sitepoint.com/html5-web-storage/" target="_blank" rel="noopener noreferrer">
+                        https://www.sitepoint.com/html5-web-storage/
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="info-extra">
+            <p>Proyecto creado por Andrea Jimenez</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

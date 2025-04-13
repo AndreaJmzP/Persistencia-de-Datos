@@ -1,0 +1,225 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #0a0a0a;
+    background-color: #FFECDB;
+}
+
+header {
+    background-color: #3A1078;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+h2,
+h3 {
+    color: #3A1078;
+    margin-top: 0;
+}
+
+/* Menú de navegación */
+#menu-principal ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0 0;
+}
+
+#menu-principal a {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#menu-principal a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+#menu-principal a.active {
+    background-color: #8F87F1;
+    font-weight: 600;
+}
+
+/* Contenido principal */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.seccion {
+    background-color: white;
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* PDF Container */
+.pdf-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+/* Footer */
+footer {
+    background-color: #3A1078;
+    color: white;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+.referencias {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.referencias a {
+    color: #C5BAFF;
+    text-decoration: none;
+    transition: color 0.3s;
+    word-break: break-all;
+}
+
+.referencias a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.referencias h3 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.referencias ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.referencias li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-extra {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #menu-principal ul {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    #menu-principal a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .seccion {
+        padding: 1.5rem;
+    }
+
+    .pdf-container {
+        height: 500px;
+    }
+
+    .referencias li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para ejemplos de código */
+.code-example {
+    background-color: #f8f8f8;
+    border-left: 4px solid #8F87F1;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border-radius: 0 4px 4px 0;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+}
+
+.code-example code {
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* Estilos para consejos de seguridad */
+.security-tip {
+    background-color: #FFF8E1;
+    border-left: 4px solid #FFC107;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.security-tip h4 {
+    margin-top: 0;
+    color: #FF8F00;
+    font-size: 1.1rem;
+}
+
+/* Estilos para tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.75rem 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+th {
+    background-color: #8F87F1;
+    color: white;
+    text-align: left;
+    font-weight: 500;
+    padding: 1rem;
+}
+
+td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f0f0f0;
+}
